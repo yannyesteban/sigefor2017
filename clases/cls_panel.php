@@ -174,7 +174,7 @@ class cls_panel{
 
 
 
-				if($this->vista==""){
+				if($this->vista=="" && isset($this->vform["cfg_vista_aux"])){
 					$this->vista = $this->vform["cfg_vista_aux"];
 				}//
 

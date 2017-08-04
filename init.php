@@ -55,7 +55,7 @@ $clsInput["300"] = array(
 //$jsFiles = array();
 
 $cssFiles = array(
-	"{$PATH_SEVIAN}css/sgMenu_.css",
+	"{$PATH_SEVIAN}css/Menu.css",
 	"{$PATH_SEVIAN}css/sgWindow.css",
 	"{$PATH_SEVIAN}css/sgCalendar.css",
 	"{$PATH_SEVIAN}css/selectText.css",
@@ -71,7 +71,8 @@ $jsFiles[] = array("{$PATH_SEVIAN}js/sgAjax.js", true);
 $jsFiles[] = array("{$PATH_SEVIAN}js/drag.js", true);
 $jsFiles[] = array("{$PATH_SEVIAN}js/sgWindow.js", true);
 //$jsFiles[] = array("{$PATH_SEVIAN}js/sgDB.js", true);
-$jsFiles[] = array("{$PATH_SEVIAN}js/sgMenu.js", true);
+//$jsFiles[] = array("{$PATH_SEVIAN}js/sgMenu.js", true);
+$jsFiles[] = array("{$PATH_SEVIAN}js/Sevian/Menu.js", true);
 $jsFiles[] = array("{$PATH_SEVIAN}js/sgCalendar.js", true);
 $jsFiles[] = array("{$PATH_SEVIAN}js/selectText.js", true);
 $jsFiles[] = array("{$PATH_SEVIAN}js/sgTab.js", true);

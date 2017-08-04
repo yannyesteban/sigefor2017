@@ -81,6 +81,7 @@ class cls_menu{
 	var $vexp = array();
 	
 	public $modo_async = true;
+	private $_index = 0;
 	//===========================================================
 	function __construct($menu_x="",$id_x=""){
 		if($menu_x!=""){
@@ -163,7 +164,7 @@ class cls_menu{
 			}// end if
 			
 			
-			$this->loadItems($this->menu, 0, false);
+			$this->loadItems($this->menu, 0,  false);
 			
 			/*
 			$cn->query = "	
@@ -546,6 +547,9 @@ class cls_menu{
 	//===========================================================
 	
 	private function loadItems($menu, $i, $parent = false){
+		
+		
+		
 		$cn = &$this->conexion;
 		$cn->query = "	
 				SELECT DISTINCT
@@ -616,6 +620,7 @@ class cls_menu{
 			$this->item[$i]->ejecutar($rs);
 
 			if($this->item[$i]->oculto=="si"){
+				$i++;
 				continue;
 			}// end if
 
@@ -652,7 +657,7 @@ class cls_menu{
 
 					$item->id = $i;
 					$item->parentId = $parent;
-					$item->text = $this->item[$i]->titulo;
+					$item->caption = $this->item[$i]->titulo;
 
 					$item->checked = false;
 					$item->icon = "";
@@ -678,20 +683,24 @@ class cls_menu{
 
 				$item->id = $i;
 				$item->parentId = $parent;
-				$item->text = $this->item[$i]->titulo;
+				$item->caption = $this->item[$i]->titulo;
 
 				$item->checked = false;
 				$item->icon = "";
 				$item->wCheck = false;
 
 				$item->events = array("click" => $this->item[$i]->even["onclick"]);
-
+				
 				$this->options[] = $item;
 				if($this->item[$i]->elemento == C_OBJ_MENU){
 					if($this->vses["DEBUG"] == "1"){
 						$this->deb->dbg(0, $this->item[$i]->nombre,$this->titulo,"menu=".$this->item[$i]->nombre,"m");
 					}
-					$this->loadItems($this->item[$i]->nombre, $i+1, $i);
+					//$k = $i;
+					//$this->_index++;
+					//$i++;
+					
+					$i = $this->loadItems($this->item[$i]->nombre, $i+1, $i);
 				}
 				
 
@@ -703,6 +712,7 @@ class cls_menu{
 
 		}// wend
 		
+		return $i;
 	}
 	
 	private function sgMenu($id, $options){
@@ -736,12 +746,12 @@ class cls_menu{
 		$m->pullDeltaY = 10;
 		
 		$opt = sg_json_encode($m);
-		$this->script = "\nvar men_{$id} = new _menu($opt);";
+		$this->script = "\nvar men_{$id} = new Sevian.Menu($opt);";
 		
 		
 		foreach($options as $v){
 			$opt = sg_json_encode($v);
-			
+			//hr($v->id.".....".$v->caption, "red");
 			$this->script .= "\nmen_{$id}.add($opt);";
 		}
 		
