@@ -23,6 +23,7 @@ class cls_panel{
 	
 	public $titulo = "";
 	public $reg = "";
+	public $nreg = false;
 	public $mvt = "";
 	public $ntreg = "";
 	public $referencia = "";

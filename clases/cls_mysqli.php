@@ -587,6 +587,11 @@ class cls_mysqli{
         $cadena .= "</table>";
         return $cadena;
     }// end function
+	
+	public function escape($string){
+		return $this->conexion->real_escape_string($string);
+	}
+	
 	//===========================================================
     function desconectar(){
     	if ($this->estado){

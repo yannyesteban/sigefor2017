@@ -1046,6 +1046,9 @@ class cls_sigefor extends cls_documento{
 		if($this->vses["DEBUG"] == "1"){
 			$this->js_post(C_PATH."js/sgDebug.js");
 		}
+		
+		$this->class="$this->est";
+		
 		$html = cls_documento::control();
 		
 		if($this->vses["DEBUG"]=="1"){

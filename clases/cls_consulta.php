@@ -978,8 +978,17 @@ class cls_consulta extends cfg_consulta{
 		//===========================================================
 		$ele_con = new cls_element_html("hidden",$this->consulta);
 		
+		$tipo_grid = "normal";
+		switch($this->tipo_grid){
+			case "1":
+				$tipo_grid = "basico";
+				break;
+			case "3":
+				$tipo_grid = "edicion";
+				break;
+		}
 		
-		return "<div class=\"sg_consulta\">".$div_caption.$buscador.$div->control().$div_pie_consulta.$pag.$nav.$variables.$ele_con->control()."</div>";
+		return "<div class=\"sg_consulta $tipo_grid\">".$div_caption.$buscador.$div->control().$div_pie_consulta.$pag.$nav.$variables.$ele_con->control()."</div>";
 	}// end fucntion
 	//===========================================================
 	function crear_busqueda(){

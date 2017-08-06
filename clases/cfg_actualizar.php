@@ -279,7 +279,9 @@ class cfg_actualizar{
 							if(get_magic_quotes_gpc()){
 								$val[$i] = "'".$valor."'";
 							}else{
-								$val[$i] = "'".addslashes($valor)."'";
+								
+								//$val[$i] = "'".addslashes($valor)."'";
+								$val[$i] = "'". $cn->escape($valor)."'";
 								
 							}
 							

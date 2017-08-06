@@ -99,7 +99,7 @@ class cfg_item{
 	
 	public $menu_orientacion = false;
 	
-	
+	public $ini_est = "";
 	public $autorizar  = false;
 	public $menuest = false;
 	public $even = false;

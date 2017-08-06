@@ -561,6 +561,10 @@ class cls_postgres{
         $cadena .= "</table>";
         return $cadena;
     }// end function
+	public function escape($string){
+		return pg_escape_string($string);
+	}
+	
 	//===========================================================
     function desconectar(){
     	if ($this->estado){
