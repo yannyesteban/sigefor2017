@@ -1047,7 +1047,7 @@ class cls_sigefor extends cls_documento{
 			$this->js_post(C_PATH."js/sgDebug.js");
 		}
 		
-		$this->class="$this->est";
+		//$this->class="sg-mod-$this->modulo sg-est-$this->est";
 		
 		$html = cls_documento::control();
 		
