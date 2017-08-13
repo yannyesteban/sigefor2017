@@ -655,8 +655,8 @@ class cls_menu{
 
 					$item = new stdClass;
 
-					$item->id = $i;
-					$item->parentId = $parent;
+					$item->index = $i;
+					$item->parent = $parent;
 					$item->caption = $this->item[$i]->titulo;
 
 					$item->checked = false;
@@ -681,8 +681,8 @@ class cls_menu{
 			}else{
 				$item = new stdClass;
 
-				$item->id = $i;
-				$item->parentId = $parent;
+				$item->index = $i;
+				$item->parent = $parent;
 				$item->caption = $this->item[$i]->titulo;
 
 				$item->checked = false;
