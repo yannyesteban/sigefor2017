@@ -139,6 +139,13 @@ class descrip_campo{
 	
 	public $path_archivos = false;
 	public $path_imagen = false;
+	
+	public $file_button_class = false;
+	public $file_button_value = false;
+	public $img_alto = false;
+
+
+	
 }// end class
 
 ?>
