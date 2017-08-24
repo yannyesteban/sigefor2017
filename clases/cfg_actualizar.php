@@ -124,7 +124,7 @@ class cfg_actualizar{
 		$cfg = &$this->cfg;
 		$this->vexp["NRO_ITEM"]=0;
 		$this->vexp["ULTIMO_ID"] = false;
-		
+		$error = 0;
 		
 		$detalle = false;
 		//===========================================================
@@ -143,12 +143,12 @@ class cfg_actualizar{
 			}// end if
 			$this->vexp["NRO_ITEM"]++;
 			$this->vexp["MODO"] = $modo_x;
-			
+			//print_r($cfg->tablas);exit;
 			//===========================================================
 			foreach($cfg->tablas as $tabla => $x){
 
-				if($this->tablas_aux[$tabla]){
-					//continue;
+				if(isset($this->tablas_aux[$tabla]) and $this->tablas_aux[$tabla]){
+					continue;
 				}// end if
 				$detalle = false;
 				$this->vexp["TABLA"] = $tabla;
@@ -326,7 +326,7 @@ class cfg_actualizar{
 				}// next
 				//===========================================================
 				if($valido){
-					$modo_temp=$modo;
+					$modo_temp = $modo;
 					
 					if(($no_encontrado or count($cond)==0) and $modo!=C_MODO_INSERT and $this->modo_auto){
 						$modo_temp=C_MODO_INSERT;
@@ -346,7 +346,7 @@ class cfg_actualizar{
 					$this->deb->dbg("-","Actualizando: <b>$this->forma</b>","Query","forma=$this->forma","q","<br><b>Q:</b> ".$this->q);
 					$cn->query = $this->q;
 					
-					
+					//echo $this->q;
 					$cn->ejecutar();
 					
 					
