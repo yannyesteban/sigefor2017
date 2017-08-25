@@ -57,7 +57,7 @@ class cls_navegador{
 	public $tipo = false;
 	public $nro_items = false;
 	
-	public $modo_async = true;
+	public $modo_async = false;
 	
 	function __construct(){
 		$this->conexion = sgConnection();

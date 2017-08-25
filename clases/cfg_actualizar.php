@@ -15,6 +15,8 @@ class cfg_actualizar{
 	var $vreg = array();
 	var $vexp = array();
 	
+	public $cfg_reg = false;
+	
 	function __construct(){
 		$this->conexion = sgConnection();
 		
@@ -329,6 +331,8 @@ class cfg_actualizar{
 					$modo_temp = $modo;
 					
 					if(($no_encontrado or count($cond)==0) and $modo!=C_MODO_INSERT and $this->modo_auto){
+						hr(1);
+						print_r($cond);
 						$modo_temp=C_MODO_INSERT;
 					}					
 					switch($modo_temp){
@@ -346,7 +350,7 @@ class cfg_actualizar{
 					$this->deb->dbg("-","Actualizando: <b>$this->forma</b>","Query","forma=$this->forma","q","<br><b>Q:</b> ".$this->q);
 					$cn->query = $this->q;
 					
-					//echo $this->q;
+					//hr($this->q);
 					$cn->ejecutar();
 					
 					
