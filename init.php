@@ -8,7 +8,7 @@ $PATH = C_PATH;
 $PATH_SEVIAN = C_PATH_SEVIAN;
 
 error_reporting(E_ALL);
-ini_set("display_errors", true); 
+ini_set("display_errors", false); 
 //ini_set('html_errors', false);
 define ("SS_CHARSET", "utf-8");
 //define ("SS_CHARSET", "iso-8859-1");
