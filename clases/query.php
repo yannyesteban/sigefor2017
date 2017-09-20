@@ -45,6 +45,14 @@ class query{
 		$btnOk->value = "Enviar..";
 		
 		
+		
+		$extra = $divMenu->add("input");
+		$extra->type = "button";
+		
+		$ins = $this->vses["SS_INS"];
+		$extra->value = "Open..";
+		$extra->onclick = "window.open('../../query.php?cfg_ins_aux=$ins')";
+		
 		$this->body = $divBody = $main->add("div");
 		$divBody->class = "sg-query-body";
 		
