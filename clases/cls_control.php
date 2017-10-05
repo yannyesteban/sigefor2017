@@ -85,7 +85,10 @@ class cls_control{
 		C_CTRL_TEXT_DESCRIP => "",
 
 		C_CTRL_SG_SELECT => "sgSelect",
-		C_CTRL_SG_CALENDAR => "sgCalendar");
+		C_CTRL_SG_CALENDAR => "sgCalendar",
+		C_CTRL_SG_COLOR => ""
+	
+	);
 	
 	//===========================================================
 	function control(&$elem){
@@ -496,6 +499,16 @@ class cls_control{
 			//===========================================================
 			case C_CTRL_HIDDEN:
 				$ele_x->type = "hidden";
+				$ele_x->name = $elem->nombre;
+				$ele_x->id = $elem->nombre;
+				$ele_x->value = $elem->valor;
+
+
+
+				$elem->objeto = $ele_x->control();
+				break;
+			case C_CTRL_SG_COLOR:
+				$ele_x->type = "color";
 				$ele_x->name = $elem->nombre;
 				$ele_x->id = $elem->nombre;
 				$ele_x->value = $elem->valor;

@@ -66,6 +66,8 @@ define("C_CTRL_COMBO_TEXT","62");
 
 define("C_CTRL_SG_SELECT","63");
 define("C_CTRL_SG_CALENDAR","64");
+define("C_CTRL_SG_COLOR","65");
+
 
 // ==================== cfg_consulta ====================
 define("C_CON_OBJ_CELDA",1);
