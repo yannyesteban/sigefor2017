@@ -171,7 +171,7 @@ class cls_postgres{
         }else{
         	$this->filas_afectadas = @pg_affected_rows();
 			$this->insert_id = -1;
-			if($this->tabla_insert){
+			if($this->filas_afectadas or true){
 				$query_last_id = "SELECT LASTVAL() as last_id";
 				
 				pg_send_query($this->conexion,$query_last_id);
