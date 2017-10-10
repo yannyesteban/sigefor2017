@@ -343,7 +343,7 @@ class cls_consulta extends cfg_consulta{
 				}// end if
 				if($prop = extraer_para($this->elem[$c]->propiedades_titulo)){
 					foreach($prop as $para => $valor){
-						eval("\$t->cell[$f+$alfa][$ct+$delta]->$para = \"$valor\";");
+						$t->cell[$f+$alfa][$ct+$delta]->$para = $valor;
 					}// next
 				}// end if
 	
@@ -384,7 +384,7 @@ class cls_consulta extends cfg_consulta{
 			}// end if
 			if($prop = extraer_para($this->propiedades_titulo)){
 				foreach($prop as $para => $valor){
-					eval("\$t->cell[0+$alfa][0]->$para = \"$valor\";");
+					$t->cell[0+$alfa][0]->$para = $valor;
 				}// next
 			}// end if
 			$t->cell[0+$alfa][0]->text = $this->titulo_enumeracion;
@@ -396,7 +396,7 @@ class cls_consulta extends cfg_consulta{
 			}// end if
 			if($prop = extraer_para($this->propiedades_titulo)){
 				foreach($prop as $para => $valor){
-					eval("\$t->cell[0+$alfa][$delta-1]->$para = \"$valor\";");
+					$t->cell[0+$alfa][$delta-1]->$para = $valor;
 				}// next
 			}// end if
 			//$t->cell[0+$alfa][$delta-1]->class = $this->clase_seleccion;
@@ -494,7 +494,7 @@ class cls_consulta extends cfg_consulta{
 				
 				if($prop = extraer_para($this->evaluar_exp($this->elem[$c]->parametros))){
 					foreach($prop as $para => $valor){
-						eval("\$this->elem[$c]->$para = \"$valor\";");
+						$this->elem[$c]->$para = $valor;
 					}// next
 				}// end if
 
@@ -591,7 +591,7 @@ class cls_consulta extends cfg_consulta{
 	
 					if($prop = extraer_para($propiedades_det)){
 						foreach($prop as $para => $valor){
-							eval("\$t->cell[$f+$alfa][$ct+$delta]->$para = \"$valor\";");
+							$t->cell[$f+$alfa][$ct+$delta]->$para = $valor;
 						}// next
 					}// end if
 	
@@ -615,7 +615,7 @@ class cls_consulta extends cfg_consulta{
 				}// end if
 				if($prop = extraer_para($propiedades_det)){
 					foreach($prop as $para => $valor){
-						eval("\$t->cell[$f+$alfa][0]->$para = \"$valor\";");
+						$t->cell[$f+$alfa][0]->$para = $valor;
 					}// next
 				}// end if
 			
@@ -687,7 +687,7 @@ class cls_consulta extends cfg_consulta{
 				}// end if
 				if($prop = extraer_para($propiedades_det)){
 					foreach($prop as $para => $valor){
-						eval("\$t->cell[$f+$alfa][$delta-1]->$para = \"$valor\";");
+						$t->cell[$f+$alfa][$delta-1]->$para = $valor;
 					}// next
 				}// end if
 				
@@ -1170,7 +1170,7 @@ class cls_consulta extends cfg_consulta{
 			$ele->src = $ele_x->path_imagen.$valor.(($ele_x->nocache)?"?nocache=".date("YmdHis"):"");//."?".date("YmdHis");
 			if($prop = extraer_para($ele_x->para_objeto)){
 				foreach($prop as $para => $valor){
-					eval("\$ele->$para = \"$valor\";");
+					$ele->$para = $valor;
 				}// next
 			}// end if
 			return  $ele->control();
@@ -1182,7 +1182,7 @@ class cls_consulta extends cfg_consulta{
 			$ele->href = $valor;
 			if($prop = extraer_para($ele_x->para_objeto)){
 				foreach($prop as $para => $valor){
-					eval("\$ele->$para = \"$valor\";");
+					$ele->$para = $valor;
 				}// next
 			}// end if
 			return $ele->control();
