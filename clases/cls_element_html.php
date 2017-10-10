@@ -99,6 +99,7 @@ class cls_element_html{
 	    case "reset":
 	    case "submit":
 	    case "text":
+		case "color":
 			$cad .= ($this->type != "")?" type=\"$this->type\"":"";
 	        $cad .= ($this->src != "")?" src=\"$this->src\"":"";
 	        $cad .= ($this->maxlength != "")?" maxlength=\"$this->maxlength\"":"";
@@ -185,6 +186,7 @@ class cls_element_html{
 			case "reset":
 			case "submit":
 			case "text":
+			case "color":
                 $cad = "<input".$this->doit().">".$this->label;
 				break;
 			case "textarea":
