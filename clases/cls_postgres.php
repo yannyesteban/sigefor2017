@@ -76,7 +76,7 @@ class cls_postgres{
 	//==========================================================
 	// Funcion constructora de la clase
 	//===========================================================
-	function cls_conexion($servidor="", $usuario="", $password="", $bdatos="", $puerto="", $charset = false){
+	function __construct($servidor="", $usuario="", $password="", $bdatos="", $puerto="", $charset = false){
 	
     	if ($servidor!=""){
 			$this->servidor = $servidor;
@@ -169,7 +169,7 @@ class cls_postgres{
 				$this->nro_filas = @pg_num_rows($this->result);
 	        }// end if
         }else{
-        	$this->filas_afectadas = @pg_affected_rows();
+        	$this->filas_afectadas = @pg_affected_rows($this->result);
 			$this->insert_id = -1;
 			if($this->filas_afectadas or preg_match("/INSERT\s+INTO/i", $this->query)){
 				$query_last_id = "SELECT LASTVAL() as last_id";
@@ -457,7 +457,7 @@ class cls_postgres{
 		if($bd_x!=""){
 			$this->bdatos = $bd_x;
 		}// end if
-		$this->cls_conexion("","","",$this->bdatos);
+		$this->__construct("","","",$this->bdatos);
 	}// end fucntion
 	//===========================================================
     function extraer_bdatos(){

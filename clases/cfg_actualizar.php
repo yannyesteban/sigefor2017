@@ -122,7 +122,7 @@ class cfg_actualizar{
 		//$this->conexion = new cls_conexion;
 		$cn = &$this->conexion;
 		$cn->mostrar_error=false;
-		$cn->begin_trans();
+		//$cn->begin_trans();
 		$cfg = &$this->cfg;
 		$this->vexp["NRO_ITEM"]=0;
 		$this->vexp["ULTIMO_ID"] = false;

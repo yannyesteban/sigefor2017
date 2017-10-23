@@ -311,12 +311,12 @@ class cfg_campos_con{
 		$rango_x = explode(C_SEP_L,$param);
 		$ini = $rango_x[0];
 		$fin = $rango_x[1];
-		if($rango_x[2]!=""){
+		if(isset($rango_x[2])){
 			$step = $rango_x[2];
 		}else{
 			$step = 1;
 		}// end if
-		$val_relacion = $rango_x[3];
+		$val_relacion = (isset($rango_x[3]))?$rango_x[3]:"";
 		if($elem->q_rango_relacion=="si"){
 			$rel = C_SEP_V.$val_relacion;
 		}else{
