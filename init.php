@@ -34,7 +34,7 @@ $_conn["default"] = array(
 $clsInput = $clsElement = array();
 $clsElement["201"] = 
 $clsElement["query"] = array(
-	"file" => "query.php",
+	"file" => "{$PATH}clases/query.php",
 	"class" => "query");
 
 $clsElement["202"] = 

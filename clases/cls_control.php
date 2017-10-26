@@ -854,7 +854,7 @@ class cls_control{
 				$ele_x->value = $elem->valor;
 
 				$n_ele = count($elem->data);
-				$cols =($elem->tabla_cols!="")?$elem->tabla_cols:$this->tabla_cols;
+				$cols =(isset($elem->tabla_cols))?$elem->tabla_cols:$this->tabla_cols;
 				$fils = ceil($n_ele/$cols);
 
 				$t = new cls_table($fils,$cols);

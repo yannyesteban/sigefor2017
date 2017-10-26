@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("clases/funciones.php");
+//include("clases/funciones.php");
 //require_once("constantes.php");
 $ins = "";
 if(isset($_GET["cfg_ins_aux"]) or isset($_POST["cfg_ins_aux"])){

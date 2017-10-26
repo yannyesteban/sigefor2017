@@ -267,7 +267,7 @@ class cls_catalogo{
 		if($nav_x!=""){
 			$this->navegador = $nav_x;
 		}// end if
-		if($this->navegador == ""){
+		if($this->navegador == "" or !isset($this->panel)){
 			return "";
 		}// end if
 		
