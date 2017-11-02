@@ -2,7 +2,7 @@
 /*****************************************************************
 creado: 01/07/2007
 modificado: 11/07/2007
-por: Yanny Nuñez
+por: Yanny Nuï¿½ez
 *****************************************************************/
 require ("cfg_reporte.php");
 require ("cfg_campos_rep.php");
@@ -500,7 +500,7 @@ class cls_reporte extends cfg_reporte{
 		$r="";
 		$detalle_blanco = preg_replace("/{=(\w+)}/","&nbsp;",$detalle);
 		for($fb=0;$fb<$nro_filas_blanco;$fb++){
-			$r .= $detalle_blanco;
+		//	$r .= $detalle_blanco;
 		}// next
 			$this->crear_pagina($r,false);
 		//===========================================================
