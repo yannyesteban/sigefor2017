@@ -67,7 +67,7 @@ function cls_elemento(nombre_x){
 			}// next
 		}// end if
 		//================================================================
-		if(!this.ele.length){
+		if(this.ele && !this.ele.length){
 			this.tipo = this.ele.type
 			this.crear_atributos(this.ele,this.referenciar)
 		}else{

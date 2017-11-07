@@ -80,7 +80,7 @@ class cls_menu{
 	var $vreg = array();
 	var $vexp = array();
 	
-	public $modo_async = true;
+	public $modo_async = false;
 	private $_index = 0;
 	//===========================================================
 	function __construct($menu_x="",$id_x=""){
