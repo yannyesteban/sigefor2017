@@ -3,7 +3,7 @@
 creado: 20/03/2007
 modificado: 11/07/2007
 modificado: 08/09/2008
-por: Yanny Nuñez
+por: Yanny Nuï¿½ez
 *****************************************************************/
 //require_once("cls_element_html.php");
 //require_once("cls_table.php");
@@ -44,7 +44,9 @@ class cls_control{
 	var $tabla_cellpadding = C_LISTA_CELLPADDING;
 	var $tabla_border = C_LISTA_BORDER;
 	var $tabla_clase = "";
-	
+
+
+	var $tipo_archivo = "";
 	var $valor_si = 1;
 
 	var $rows_min = 1;
@@ -770,12 +772,28 @@ class cls_control{
 					$ele_y->value = (isset($this->file_button_value))?$this->file_button_value:"Ver";
 					//$aux .= "\n".$ele_y->control();			
 					$tiempo = date("Ymmddhhss");
-					$img =new cls_element_html("img");
-					$img->src = $archivo_x."?aux=$tiempo";
-					$img->width = (isset($elem->img_ancho))?$elem->img_ancho:"";
-					$img->height = (isset($elem->img_alto))?$elem->img_alto:"";
-					$img->onclick = "window.open('".$archivo_x."','_blank')";
-					$img_x  = $img->control()."<hr>";
+					
+					if($elem->tipo_archivo=='' or $elem->tipo_archivo=='2'){
+						$img =new cls_element_html("a");
+						$img->href = $archivo_x."?aux=$tiempo";
+						$img->target = "_blank";
+						$img->inner_html = "Mostrar";
+						//$img->width = (isset($elem->img_ancho))?$elem->img_ancho:"";
+						//$img->height = (isset($elem->img_alto))?$elem->img_alto:"";
+						//$img->onclick = "window.open('".$archivo_x."','_blank')";
+						$img_x  = $img->control()."<hr>";
+					
+					}else{
+						$img =new cls_element_html("img");
+						$img->src = $archivo_x."?aux=$tiempo";
+						$img->width = (isset($elem->img_ancho))?$elem->img_ancho:"";
+						$img->height = (isset($elem->img_alto))?$elem->img_alto:"";
+						$img->onclick = "window.open('".$archivo_x."','_blank')";
+						$img_x  = $img->control()."<hr>";
+						
+						
+					}	
+					
 
 
 
@@ -1725,7 +1743,7 @@ $control->propertys = "size:3;rows:20;cols:50;check_value:yanny;tabla_border:2;t
 $control->value = "7,1";
 $control->data[0] = "1:Yanny";
 $control->data[1] = "2:Esteban";
-$control->data[2] = "3:Nuñez";
+$control->data[2] = "3:Nuï¿½ez";
 $control->data[3] = "4:Jimenez";
 $control->data[4] = "5:Valencia";
 $control->data[5] = "6:Caracas";
