@@ -30,6 +30,7 @@ class sgSelectText{
 
 		
 		$opt = array(
+			
 			"name" => $this->nombre,
 			"target" => $span->id,
 			
@@ -42,6 +43,7 @@ class sgSelectText{
 			"padre" => $this->padre,
 			"valor_ini" => $this->valor_ini,
 			"value" => $this->valor,
+			"deshabilitado"=>$this->deshabilitado,
 			"data" => $data,
 			"events"=>$events,
 			"hijos"=>($this->hijos)?true:false,

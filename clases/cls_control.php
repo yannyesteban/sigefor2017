@@ -146,7 +146,7 @@ class cls_control{
 			$elem->script .= "\n".$scf.".crear(\"$elem->nombre\");";
 		}// end if
 		*/
-		if($tipo = $this->getTypeControl($elem->control))	{
+		if($tipo = $this->getTypeControl($elem->control)){
 			$elem->script .= "\n".$scf.".crear(\"$elem->nombre\",\"$tipo\");";
 		}else{
 			$elem->script .= "\n".$scf.".crear(\"$elem->nombre\");";
@@ -1135,7 +1135,7 @@ class cls_control{
 				break;	
 				
 			default:
-				
+				echo 33333;
 				global $INPUTS;
 				
 				if(isset($INPUTS[$elem->control])){

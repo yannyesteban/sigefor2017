@@ -43,11 +43,16 @@ var sgTextSelect = false;
 		
 		selectText.call(this, opt);
 		
+		
 	};
 	sgTextSelect.prototype = new selectText({});
 	
 	sgTextSelect.prototype.init = function(){
 		this.ele = this.get();
+
+		if(this.deshabilitado=="si"){
+			this.ele.disabled = true;
+		}
 		
 	};
 	
@@ -59,7 +64,7 @@ var sgTextSelect = false;
 		return this.setValue(value);
 	};
 	sgTextSelect.prototype.get_deshabilitado = function(){
-		return false;
+		return this.disabled();
 		
 	};
 	sgTextSelect.prototype.foco = function(){
