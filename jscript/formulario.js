@@ -127,7 +127,7 @@ function cls_formulario(form_x){
 			
 			this.val.f = this.f
 			if(campo.valid != ""){
-				
+				alert(nombre)
 				if(!campo.get_deshabilitado() && !this.val.mostrar_error(campo.valid ,nombre,valor,campo.titulo)){
 					campo.foco(true)
 					campo.set_clase(clase_inv)
