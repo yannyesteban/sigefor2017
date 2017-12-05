@@ -2,7 +2,7 @@
 /*****************************************************************
 creado: 01/07/2007
 modificado: 11/07/2007
-por: Yanny Nuñez
+por: Yanny Nuï¿½ez
 *****************************************************************/
 //===========================================================
 class cfg_campo{
@@ -511,6 +511,10 @@ class cfg_campo{
 		
 		$elem->objeto_nombre = $this->pre.$nombre.$this->suf;
 		//$this->vreg = &$this->valores;
+		if($elem->control  == C_CTRL_FILE){
+			//hr($elem->nombre."{$elem->nombre}_FILE_auX_p{$this->panel}");
+			$elem->validaciones = "file_id:{$elem->nombre}_FILE_auX_p{$this->panel};archivo:si;".$elem->validaciones;
+		}
 		
 		$this->evaluar_data($elem);
 		

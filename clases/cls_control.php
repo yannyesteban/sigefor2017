@@ -749,14 +749,23 @@ class cls_control{
 				$ele_y->value = $elem->valor;
 				$aux = "\n".$ele_y->control();			
 				$img_x = "";
+
+				$maxsize = false;
+
+				if(isset($elem->maxsize)){
+					$maxsize = $elem->maxsize;
+
+				}
+				
 				if($elem->solo_lectura!="si"){
 
 							$ele_x->type = "file";
 							$ele_x->name = $elem->nombre."_FILE_auX";
 							$ele_x->value = "";
-							$ele_x->id = $ele_x->id;
+							$ele_x->id = $ele_x->name."_p{$this->panel}";
+							$ele_x->onchange = "this.form.{$elem->nombre}.value = this.value;";
 							$input_file = $ele_x->control();
-							//$ele_x->onclick = "alert(this.value)";
+							
 				}else{			
 					$input_file = "";	
 				}// end if	

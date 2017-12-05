@@ -2,12 +2,12 @@
 Programa: Validaciones de Elementos de Formulario en tiempo Real 
 Version: 3.0
 Fecha: 15 de Marzo de 2007, 8:37pm.
-Última revision: 01 de Agosto de 2007, 03:35pm.
-Última revision: 25 de Mayo de 2011, 06:22pm.
+ï¿½ltima revision: 01 de Agosto de 2007, 03:35pm.
+ï¿½ltima revision: 25 de Mayo de 2011, 06:22pm.
 Nombre del Archivo: cls_validaciones.js
 Lenguaje: JavaScript 1.2
 							.*.*.*.*.*.*.*.
-Programado por: Yanny Núñez
+Programado por: Yanny Nï¿½ï¿½ez
 Para el Sistema de Gestion de Formulario 2.0 
 ******************************************************************************/
 function obj_fecha(){
@@ -189,17 +189,20 @@ function para_validacion(nombre_x){
 	this.patron_valor = "#valor#"
 	this.patron_prop = "#prop#"
 	this.patron_fecha = null
+	this.archivo = false
+	this.maxsize = false
+	this.extensiones = false
 	this.msg_obligatorio = "El campo "+this.patron+" es obligatorio"
-	this.msg_alfabetico = "El campo "+this.patron+" solo debe tener caracteres alfabéticos"
+	this.msg_alfabetico = "El campo "+this.patron+" solo debe tener caracteres alfabï¿½ticos"
 	this.msg_alfanumerico = "El campo "+this.patron+" solo debe tener caracteres alfanumericos"
 	this.msg_sin_espacio = "El campo "+this.patron+" no debe tener espacio en blancos"
-	this.msg_numerico = "El campo "+this.patron+" debe ser un valor numérico"
-	this.msg_entero = "El campo "+this.patron+" debe ser un número entero"
-	this.msg_positivo = "El campo "+this.patron+" debe ser un número positivo"
-	this.msg_email = "El campo "+this.patron+" no es una dirección de correo válida"
-	this.msg_fecha = "El campo "+this.patron+" no es una fecha válida"
-	this.msg_hora = "El campo "+this.patron+" no es una hora válida"
-	this.msg_exp = "El campo "+this.patron+" no coincide con un patrón válido"
+	this.msg_numerico = "El campo "+this.patron+" debe ser un valor numï¿½rico"
+	this.msg_entero = "El campo "+this.patron+" debe ser un nï¿½mero entero"
+	this.msg_positivo = "El campo "+this.patron+" debe ser un nï¿½mero positivo"
+	this.msg_email = "El campo "+this.patron+" no es una direcciï¿½n de correo vï¿½lida"
+	this.msg_fecha = "El campo "+this.patron+" no es una fecha vï¿½lida"
+	this.msg_hora = "El campo "+this.patron+" no es una hora vï¿½lida"
+	this.msg_exp = "El campo "+this.patron+" no coincide con un patrï¿½n vï¿½lido"
 	this.msg_mayor = "El campo "+this.patron+" debe ser mayor que "+this.patron_valor
 	this.msg_menor = "El campo "+this.patron+" debe ser menor que "+this.patron_valor
 	this.msg_mayor_igual = "El campo "+this.patron+" debe ser mayor o igual que "+this.patron_valor
@@ -211,6 +214,9 @@ function para_validacion(nombre_x){
 	this.msg_condicion = "El campo "+this.patron+" no coincide con la condicion"
 	this.msg_long_min = "El Nro de caracteres del campo "+this.patron+" debe ser mayor que "+this.patron_prop
 	this.msg_long_max = "El Nro de caracteres del campo "+this.patron+" debe ser menor que "+this.patron_prop
+
+	this.msg_maxsize = "El TamaÃ±o del Archivo en el campo "+this.patron+" es superior al permitido"
+	this.msg_extensiones = "La ExtensiÃ³n del Archivo en el campo "+this.patron+" no estÃ¡ permitida"
 	// ***** METODOS *****
 	this.extraer_para = extraer_para
 	//================================================================
@@ -375,7 +381,7 @@ function cls_validacion(){
 			this.mensaje = this.msg_error(this.prop.msg_alfanumerico,this.prop.titulo)
 			return false
 		}// end if
-		if (this.prop.alfabetico == "si" && !this.eval_exp("^([ A-ZáéíóúÁÉÍÓÚüÜñÑ]+)$",valor)){
+		if (this.prop.alfabetico == "si" && !this.eval_exp("^([ A-Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]+)$",valor)){
 			this.mensaje = this.msg_error(this.prop.msg_alfabetico,this.prop.titulo)
 			return false
 		}// end if
@@ -451,9 +457,25 @@ function cls_validacion(){
 			this.mensaje = this.msg_error(this.prop.msg_imenor_igual,this.prop.titulo,this.prop.imenor_igual)
 			return false
 		}// end if
+		if (this.prop.archivo == "si"){
+			var e = document.getElementById(this.prop.file_id);
+			if(e){
+				if (this.prop.maxsize && (e.files[0].size*1 > this.prop.maxsize*1)){
+					this.mensaje = this.msg_error(this.prop.msg_maxsize,this.prop.titulo)
+					return false
+				}// end if
+
+				if (this.prop.extensiones && !this.eval_exp(this.prop.extensiones+"$",valor)){
+					this.mensaje = this.msg_error(this.prop.msg_extensiones,this.prop.titulo)
+					return false
+				}// end if
+			}
+		}// end if
+
 		return true
 	}// end function
 	//================================================================
+	
 	function msg_error(msg_x,valor_y,prop_x){
 		var re = eval("/"+this.prop.patron+"/i")
 		var matchArray = re.exec(msg_x)
