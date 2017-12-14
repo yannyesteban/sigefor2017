@@ -459,7 +459,7 @@ function cls_validacion(){
 		}// end if
 		if (this.prop.archivo == "si"){
 			var e = document.getElementById(this.prop.file_id);
-			if(e){
+			if(e && e.files && e.files[0]){
 				if (this.prop.maxsize && (e.files[0].size*1 > this.prop.maxsize*1)){
 					this.mensaje = this.msg_error(this.prop.msg_maxsize,this.prop.titulo)
 					return false

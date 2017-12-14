@@ -21,7 +21,7 @@ class cls_adjuntar{
 		}// end if
 
 
-		if($this->nombre==""){
+		if($this->nombre=="" or true){
 			$rand = substr((rand (0,9999)*10000),0,4);
 			$aux = date("YmdHis")."_".$rand;	
 			$this->nombre = $aux.$this->ext;
