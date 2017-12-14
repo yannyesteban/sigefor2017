@@ -1179,7 +1179,7 @@ class cls_consulta extends cfg_consulta{
 		case C_CON_TOBJ_VINCULO:
 			$ele = new cls_element_html("a");
 			$ele->inner_html = $valor;
-			$ele->href = $valor;
+			$ele->href = $ele_x->path_imagen.$valor;
 			if($prop = extraer_para($ele_x->para_objeto)){
 				foreach($prop as $para => $valor){
 					$ele->$para = $valor;
